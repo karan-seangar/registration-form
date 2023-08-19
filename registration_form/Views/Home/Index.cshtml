@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <style>
+        #form_box {
+            margin: 1% auto;
+            padding: 5%;
+            border: solid;
+            display: flex;
+            flex-direction: row;
+            background-image: url("https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&w=400");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #flex_item{
+            flex:50%;
+        }
+        .form_content {
+            padding: 1%;
+            text-align: center;
+           background:none;
+           font-family:Arial;
+        }
+        form{
+            font-size:medium;
+            padding:5%;
+            display:inline;
+            text-align:center;
+        }
+        label{
+            margin-right:5px;
+        }
+        input {
+            background-color: transparent;
+            border:1px solid;
+            border-radius:4px;
+            margin-left:auto;
+        }
+        input[type="text"] {
+            border: none;
+            text-decoration: none; 
+            border-radius:0;
+        }
+        input[type="text"],select,textarea {
+            width: 200%;
+            height:30px;
+            background-color:transparent; 
+            border-bottom:1px solid;
+        }
+        input[type="radio"]{
+            margin:0px 10px 1px 50px;  
+        }
+        input[type="date"]{
+            
+            border:1px solid;
+            width:100%;
+        }
+        input[type="number"]{
+            width:100%;
+        }
+        input:hover{
+            border:none;
+            text-decoration:none;
+            background-color:transparent;
+        }
+        hr {
+            border-top: 1px solid black;
+            width:70%;
+        }
+        .text {
+            text-align:center;
+            text-align:left;
+            padding:0 10% 0 15%;
+            margin:auto;
+            width:90%;
+        }
+        .image {
+            border: solid;
+            object-fit: cover;
+            background-image: url("https://th.bing.com/th?id=OIP.Afs3drishCo89ngpELwcPQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #submit {
+            margin-left: 60px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 22px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="form_box">
+
+        <div class="image" id="flex_item">
+            
+
+        </div>
+        <div class="form_content" id="flex_item">
+            <h1>Hotel Registration</h1>
+            <hr />
+            <form action="/action_page.php">
+                <!-- <label for="fname">first name</label> -->
+                <div class="text">
+                    <input type="text" id="fname" placeholder="first name" name="fname">
+
+                </div><br />
+                <!----<label for="lname">last name</label>-->
+                <div class="text">
+                    <input type="text" id="lname" placeholder="last name" name="lname">
+                </div>
+                <br><br>
+                
+                <input type="date" id="Dob" name="Dob" /><br /><br />
+                
+                <input type="number" id="phone_no" placeholder="select rooms" /><br /><br />
+
+
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" />
+                <label for="female">Female</label>
+                <input type="radio" id="other" name="gender" value="other" />
+                <label for="other">Other</label><br /><br />
+                <input type="submit" id="submit" value="Submit">
+
+            </form>
+        </div>
+
+
+
+    </div>
+</body>
+</html>

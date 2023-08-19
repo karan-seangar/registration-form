@@ -1,0 +1,450 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <title>Registration form</title>
+
+    <style>
+        
+        .container-fluid {
+            width:600px;
+            
+            border-radius: 1% 5% 1% 5%;
+            /*border: 2px solid;*/
+            border-color: rgb(221, 157, 168);
+            box-shadow: 1px 1px 5px 5px skyblue;
+            margin: auto;
+            
+        }
+
+        body {
+            background-image: url("https://img.freepik.com/premium-photo/top-view-note-book-with-airplane-toy-pen-sky-blue-background-with-copy-space_43284-1044.jpg?size=626&ext=jpg&ga=GA1.2.202181420.1685344252&semt=ais");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        label {
+            margin-left: 1px;
+            margin-bottom: 1%;
+        }
+        input[type='radio']{
+            margin-left:5%;
+        }
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            color:black;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid mb-5 mt-5">
+        <div class="container col-lg-pull-5 mt-5" >
+            <form action="/action_page.php" name="form">
+                <div class="text-center mt-3 mb-5">
+                    <h1>Hotel Registration</h1>
+                    <hr />
+                </div>
+                <div class="row mb-2 mt-3">
+                    <div class="col-sm-6 mb-4">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-pen"></i></span>
+                            <input type="text" class="form-control" id="fname" onchange="check(this.value)" placeholder="First name">
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 mb-4">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-pen"></i></span>
+                            <input type="text" class="form-control" id="lname" onchange="check(this.value)" onclick="checkfname()" placeholder="Last name">
+                        </div>
+
+                    </div>
+                    <div id="msg" class="input-group mb-1 alert alert-danger"><span id="message"></span></div>
+                </div>
+               
+
+                    <div class="row mb-2 mt-3">
+                        <div class="col-sm-6 mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-sharp fa-solid fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" onclick="checklname()" onchange="checkEmail(this.value)" name="email">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
+                                <input type="password" class="form-control" id="pwd" onchange="validate_password()" onclick="checkemail()" placeholder="Enter password" name="pswd">
+                            </div>
+                        </div>
+                        <div id="msg2" class="input-group mb-1 alert alert-danger"><span id="message2"></span></div>
+                    </div>
+                    <div class="row mb-2 mt-3 ">
+                        <div class="col-sm-6 mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-phone"></i></span>
+                                <input type="number" class="form-control" id="phoneno" onclick="checkpassword()" onchange="number(this.value)" placeholder="Phone no">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-4">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+                                <input type="number" class="form-control" id="adharno" onchange="adhrno(this.value)" onclick="checkphno()" placeholder="Aadhar no">
+                            </div>
+
+                        </div>
+                        <div id="msg3" class="input-group mb-1 alert alert-danger"><span id="message3"></span></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="text" class="form-label">Gender</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa-solid fa-neuter"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" onclick="checkadhar()"name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Male</label>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" onclick="checkadhar()" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2 mt-3 ">
+                        <div class="col-sm-6 mb-1">
+                            <label class="form-label"> Check-in Date: </label><br />
+                            <div class="input-group">
+
+                                <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                <input type="date" class="form-control" id="date" name="dd" onclick="checkadhar()" onkeyup="checkDate(this.value)" placeholder="D.O.B">
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-sm-6 mb-1">
+                            <label class="form-label">Check-out Date: </label><br />
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa-solid fa-calendar-days"></i></span>
+                                <input type="date" class="form-control" id="date2" name="dd" onclick="checkdate()" onchange="date()" placeholder="D.O.B">
+                            </div>
+                        </div>
+                        <div id="msg4" class="input-group mb-1 alert alert-danger"><span id="message4"></span></div>
+                    </div>
+                    <label>Room type:</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa-solid fa-bed"></i></span>
+                        <select class="form-select" id="select" onclick="checkdate2()" onchange="dropdown(this.value)">
+                            <option value="">Select</option>
+                            <option value="luxury">luxury</option>
+                            <option value="Deluxe">Deluxe</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Bunkbed">Bunkbed</option>
+                        </select>
+                    </div>
+                    <div id="msg5" class="input-group mb-1 alert alert-danger"><span id="message5"></span></div>
+
+                    <div class="container">
+                        <div class="row mb-2 mt-3 text-left ">
+                            <div class="form-check mb-3 col-sm-4 ml-5">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" onclick="checkselect()" name="remember"> Remember me
+                                </label>
+                            </div>
+                            <div class="form-check mb-3 col-sm-6 ml-5">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" onclick="checkselect()" name="terms" required> I accept all terms and conditions.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" id="submit" onclick="checksubmit()" class="btn btn-primary btn-block mb-3 ml-50">Submit</button>
+                    </div>
+
+
+
+
+
+</form>
+        </div>
+       
+    </div>
+    <script>
+        let element = document.getElementById("msg");
+        element.style.display = "none";
+        let msg2 = document.getElementById("msg2");
+        msg2.style.display = "none";
+        let msg3 = document.getElementById("msg3");
+        msg3.style.display = "none";
+        let msg4 = document.getElementById("msg4");
+        msg4.style.display = "none";
+        let msg5 = document.getElementById("msg5");
+        msg5.style.display = "none";
+        let var1 = document.getElementById("fname");
+        let pre;
+        let curr;
+        function check(result) {
+            /*var formate = /^[A-Za-z]+$/;*/
+            if (!result.match(/^[A-Za-z\s]+$/)) {
+                element.style.display = "block";
+                document.getElementById("message").innerHTML = "use only alphabet";
+            }
+            else{
+                element.style.display = "none";
+            }
+
+        }
+
+        function checkEmail(result) {
+            var emailRegex = /^[\w.-]+@@[a-zA-Z_-]+?\.[a-zA-Z]{2,3}$/;
+            if (emailRegex.test(result)) {
+                msg2.style.display = "none";
+            }
+            else {
+                msg2.style.display = "block";
+                document.getElementById("message2").innerHTML = "email should be in form @@gmail.com";
+            }
+        }
+        
+            function validate_password() {
+                let regex = /^(?!.*\s)(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[~`!@@#$%^&*()--+={}\[\]|\\:;"'<>,.?/_₹]).{10,16}$/;
+                var pass = document.getElementById("pwd").value;
+                console.log(regex.test(pass));
+                if (regex.test(pass)) {
+                    msg2.style.display = "none";
+                }
+                else {
+                    msg2.style.display = "block";
+                    document.getElementById("message2").innerHTML = "password should contain one special character one capital letter in it with a length more than 6";
+                }
+            }
+        
+
+        function number(result) {
+            if (result.length != 10) {
+                msg3.style.display = "block";
+                document.getElementById("message3").innerHTML = "Phone number must be of 10 digits";
+            }
+            else {
+                msg3.style.display = "none";
+            }
+        }
+        function adhrno(result) {
+            if (result.length != 12) {
+                msg3.style.display = "block";
+                document.getElementById("message3").innerHTML = "Aadhar number must be of 12 digits";
+            }
+            else {
+                msg3.style.display = "none";
+            }
+        }
+        function date(result) {
+            const da = new Date();
+            //var result = document.getElementByName("dd").value;
+            var result = document.getElementsByName("dd");
+            let currentDay = String(da.getDate()).padStart(2, '0');
+            let currentMonth = String(da.getMonth() + 1).padStart(2, "0");
+            let currentYear = da.getFullYear();
+            let currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+            console.log(result);
+            if (result<currentDate) {
+                msg4.style.display = "block";
+                document.getElementById("message4").innerHTML = "Please input valid date";
+
+            }
+
+            else {
+                msg4.style.display = "none";
+            }
+        }
+        function dropdown(result) {
+            
+            if (result === "") {
+                msg5.style.display = "block";
+                document.getElementById("message5").innerHTML = "Please select room type";
+            }
+            else {
+                msg5.style.display = "none";
+            }
+        }
+        function checkfname(){
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+        }
+        function checklname() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if(document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+        }
+        function checkemail() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if (document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+            else if (document.getElementById("email").value == "") {
+                alert("please fill email");
+            }
+        }
+        function checkpassword() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if (document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+            else if (document.getElementById("email").value == "") {
+                alert("please fill email");
+            }
+            else if (document.getElementById("pwd").value == "") {
+                alert("please fill password");
+            }
+        }
+        function checkphno() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if (document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+            else if (document.getElementById("email").value == "") {
+                alert("please fill email");
+            }
+            else if (document.getElementById("pwd").value == "") {
+                alert("please fill password");
+            }
+            else if (document.getElementById("phoneno").value == "") {
+                alert("please fill phone number");
+            }
+        }
+        function checkadhar() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if (document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+            else if (document.getElementById("email").value == "") {
+                alert("please fill email");
+            }
+            else if (document.getElementById("pwd").value == "") {
+                alert("please fill password");
+            }
+            else if (document.getElementById("phoneno").value == "") {
+                alert("please fill phone number");
+            }
+            else if (document.getElementById("adharno").value == "") {
+                alert("please fill adhar no ");
+            }
+        }
+        function checkdate() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if (document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+            else if (document.getElementById("email").value == "") {
+                alert("please fill email");
+            }
+            else if (document.getElementById("pwd").value == "") {
+                alert("please fill password");
+            }
+            else if (document.getElementById("phoneno").value == "") {
+                alert("please fill phone number");
+            }
+            else if (document.getElementById("adharno").value == "") {
+                alert("please fill adhar no ");
+            }
+            else if (document.getElementById("date1").value == "") {
+                alert("please fill check-in date");
+            }
+        }
+        function checkdate2() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if (document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+            else if (document.getElementById("email").value == "") {
+                alert("please fill email");
+            }
+            else if (document.getElementById("pwd").value == "") {
+                alert("please fill password");
+            }
+            else if (document.getElementById("phoneno").value == "") {
+                alert("please fill phone number");
+            }
+            else if (document.getElementById("adharno").value == "") {
+                alert("please fill adhar no ");
+            }
+            else if (document.getElementById("date1").value == "") {
+                alert("please fill check-in date");
+            }
+            else if (document.getElementById("date2").value == "") {
+                alert("please fill check-out date");
+            }
+        }
+        function checkselect() {
+            if (document.getElementById("fname").value == "") {
+                alert("please fill first name");
+            }
+            else if (document.getElementById("lname").value == "") {
+                alert("please fill last name");
+            }
+            else if (document.getElementById("email").value == "") {
+                alert("please fill email");
+            }
+            else if (document.getElementById("pwd").value == "") {
+                alert("please fill password");
+            }
+            else if (document.getElementById("phoneno").value == "") {
+                alert("please fill phone number");
+            }
+            else if (document.getElementById("adharno").value == "") {
+                alert("please fill adhar no ");
+            }
+            else if (document.getElementById("date1").value == "") {
+                alert("please fill check-in date");
+            }
+            else if (document.getElementById("date2").value == "") {
+                alert("please fill check-out date");
+            }
+            else if (document.getElementById("select").value == "") {
+                alert("please fill room type");
+            }
+        }
+        function checksubmit() {
+            checkselect();
+
+        }
+
+
+    </script>
+</body>
+
+</html>
